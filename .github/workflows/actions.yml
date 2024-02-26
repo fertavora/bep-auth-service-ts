@@ -11,6 +11,8 @@ jobs:
     
     env:
       NODE_ENV: "development"
+      JWT_SECRET: "github_action_secret"
+      API_PORT: 6000
 
     steps:
       - name: Checkout code
