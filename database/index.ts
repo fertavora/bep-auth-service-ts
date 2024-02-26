@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 const { Sequelize } = require('sequelize');
 
 dotenv.config();
-const hostname:any = process.env.DB_HOST;
+//const hostname:any = process.env.DB_HOST;
 const dbuser:any = process.env.DB_USER;
 const dbpassword:any = process.env.DB_PASSWORD;
 const dbname:any = process.env.DB_NAME;

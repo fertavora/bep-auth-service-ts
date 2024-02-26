@@ -6,7 +6,7 @@ import app from '../app';
 import { NewUser } from '../types/NewUser';
 
 describe('HOA Webservice', () => {
-  let accessToken:string = '';  
+  //let accessToken:string = '';  
   let newUser:NewUser;
 
   before(() => {
@@ -51,7 +51,7 @@ describe('HOA Webservice', () => {
     expect(response.headers["content-type"]).to.includes('application/json');
     expect(response.body.message).to.equal(`Welcome ${newUser.username}!`);
     expect(response.body.accessToken).to.not.be.null;
-    accessToken = response.body.accessToken;
+    //accessToken = response.body.accessToken;
   });
 
 });

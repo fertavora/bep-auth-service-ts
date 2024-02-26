@@ -1,6 +1,6 @@
 import { createLogger, format, transports, Logger } from 'winston';
 
-const myFormat = format.printf(({ level, message, label, timestamp }) => {
+const myFormat = format.printf(({ level, message }) => {
   return `${level} - ${message}`;
 });
 
