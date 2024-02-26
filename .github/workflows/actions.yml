@@ -30,7 +30,7 @@ jobs:
         run: yarn test
 
       - name: Update version
-        if: steps.test.outcome == 'success'
+        if: success()
         run: |
           echo "Updating version..."
           yarn --version patch
