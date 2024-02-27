@@ -40,6 +40,6 @@ jobs:
           # echo "github.base_ref ${{github.base_ref}}"
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git pull origin ${{github.head_ref}}
+          git pull origin ${{github.head_ref}} --rebase
           yarn version --patch
           git push origin HEAD:${{github.head_ref}}
