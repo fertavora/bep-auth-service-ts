@@ -1,0 +1,45 @@
+name: Run Tests
+
+on: 
+  pull_request:
+    branches:
+      - main
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    
+    env:
+      NODE_ENV: "development"
+      JWT_SECRET: "github_action_secret"
+      API_PORT: 6000
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Update version
+        if: success()
+        run: |
+          echo "Updating version..."
+          # echo "github.ref ${{github.ref}}"
+          # echo "github.ref_name ${{github.ref_name}}"
+          # echo "github.ref_name ${{github.ref_name}}"
+          # echo "github.head_ref ${{github.head_ref}}"
+          # echo "github.base_ref ${{github.base_ref}}"
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git pull origin ${{github.head_ref}} --rebase
+          yarn version --patch
+          git push origin HEAD:${{github.head_ref}}
