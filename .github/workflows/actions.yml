@@ -45,4 +45,4 @@ jobs:
           git fetch
           git checkout develop
           yarn version --patch
-          git push origin HEAD:${{github.head_ref}}
+          git push origin ${{github.head_ref}}
