@@ -42,6 +42,7 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           # TODO cambiar por git checkout develop
           # git pull origin ${{github.head_ref}} --rebase
-          git checkout origin develop
+          git fetch
+          git checkout develop
           yarn version --patch
           git push origin HEAD:${{github.head_ref}}
