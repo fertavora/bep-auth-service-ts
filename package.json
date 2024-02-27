@@ -1,6 +1,6 @@
 {
   "name": "bep-auth-service-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Typescript authentication service",
   "main": "server.ts",
   "author": "Fernando Tavora",
